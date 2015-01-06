@@ -6,15 +6,14 @@
 
 #include "hex.h"
 
-using namespace std;
-
-string Xor(const string& a, const string& b) {
+std::string Xor(const std::string& a, const std::string& b) {
   assert(a.length() == b.length());
-  string result;
+  std::string result;
   for (int i = 0; i < a.length(); ++i) {
     char r = (char)a[i] ^ (char)b[i];
     result += r;
   }
+  assert(result.length() == a.length());
   return result;
 }
 

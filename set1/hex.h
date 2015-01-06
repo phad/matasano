@@ -31,7 +31,8 @@ std::string FromHex(const std::string& hex) {
 std::string ToHex(const std::string& buffer) {
   std::string result;
   for (std::string::const_iterator it = buffer.begin(); it != buffer.end(); ++it) {
-    unsigned short nybble = (*it) >> 4;
+    char ch = *it;
+    unsigned short nybble = (ch & 0xf0) >> 4;
     result += (nybble < 10 ? ('0' + nybble) : ('a' + nybble - 10));
 
     nybble = (*it) & 0x0f;
