@@ -12,7 +12,6 @@ const char B64[] =
     "0123456789+/";
 
 string HexToB64(const string& hex) {
-  cout << "In: " << hex << endl;
   string b64;
   int b = 0, p = 0;
   unsigned short byte = 0;
@@ -34,7 +33,6 @@ string HexToB64(const string& hex) {
     b = byte & 0x3f;
     b64 += B64[b];
   }
-  cout << "Out: " << b64 << endl;
   return b64;
 }
 
