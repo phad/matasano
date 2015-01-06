@@ -2,18 +2,9 @@
 #include <string>
 #include <assert.h>
 
-using namespace std;
+#include "hex.h"
 
-unsigned short Hexit(char ch) {
-  if (ch >= '0' && ch <= '9') {
-    return (unsigned short)(ch - '0');
-  } else if (ch >= 'A' && ch <= 'F') {
-    return 10 + (unsigned short)(ch - 'A');
-  } else if (ch >= 'a' && ch <= 'f') {
-    return 10 + (unsigned short)(ch - 'a');
-  }
-  assert(false);
-}
+using namespace std;
 
 const char B64[] =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
