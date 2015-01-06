@@ -14,9 +14,7 @@ float attemptDecrypt(const string& ciphertext, unsigned short k, string* plainte
   assert(plaintext != NULL);
   assert(ciphertext.length() > 0);
 
-  string key;
-  key.resize(ciphertext.length(), (char)k);
-  *plaintext = Xor(ciphertext, key);
+  *plaintext = SingleKeyXor(ciphertext, k);
 
   int etaspCount = 0;
   for (string::iterator it = plaintext->begin(); it != plaintext->end(); ++it) {
