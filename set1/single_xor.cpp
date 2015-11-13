@@ -30,6 +30,8 @@ float attemptDecrypt(const string& ciphertext, string* plaintext, char* key) {
   for (unsigned short k = 0x0; k <= 0xff; ++k) {
     string candidate;
     float score = attemptDecrypt(ciphertext, k, &candidate);
+//    cout << " key: " << k << ", score: " << score << ", cand: "
+//         << candidate.substr(0, 32) << endl;
     if (score > bestScore) {
       bestScore = score;
       *key = (char)k;
