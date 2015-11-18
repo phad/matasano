@@ -5,9 +5,6 @@
 
 #include <openssl/aes.h>
 
-#include "hex.h"
-#include "single_xor.h"
-
 using namespace std;
 
 string decrypt(const string& ciphertext, const string& key) {
