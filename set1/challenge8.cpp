@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+#include "ecb_detect.h"
 #include "hex.h"
 
 const int kBlockSize = 16;
@@ -23,17 +24,7 @@ int main(int argc, char **argv) {
   for (vector<string>::iterator it = ciphertexts.begin();
        it != ciphertexts.end(); ++it, ++index) {
     const string& ciphertext(*it);
-    map<string, int> block_counts;
-    for (int offset = 0; offset < ciphertext.size(); offset += kBlockSize) {
-      const string& block(ciphertext.substr(offset, kBlockSize));
-      block_counts[block]++;
-    }
-    bool stop(false);
-    for (map<string, int>::const_iterator it = block_counts.begin();
-         it != block_counts.end(); ++it) {
-      stop |= (it->second > 1);
-    }
-    if (stop) {
+    if (is_likely_ecb(ciphertext, kBlockSize)) {
       cout << "Detected ECB for cipher text with index: " << index << endl;
       cout << "Ciphertext was: [" << ToHex(ciphertext) << "]" << endl;
       break;
