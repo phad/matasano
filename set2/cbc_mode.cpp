@@ -6,8 +6,7 @@
 
 using namespace std;
 
-//template<typename DecFunc>
-string cbc_decrypt(const string& input, const string& iv, int block_size, //DecFunc df) {
+string cbc_decrypt(const string& input, const string& iv, int block_size,
 	               function<string(const string&)> df) {
   assert(iv.length() == block_size);
   string prev(iv);
@@ -15,9 +14,9 @@ string cbc_decrypt(const string& input, const string& iv, int block_size, //DecF
 
   for (int offset = 0; offset < input.size(); offset += block_size) {
     const string& iblock(input.substr(offset, block_size));
-    const string oblock(df(Xor(iblock, prev)));
-    prev = oblock;
+    const string oblock(Xor(df(iblock), prev));
     output += oblock;
+    prev = iblock;
   }
 
   return output;
