@@ -2,7 +2,7 @@
 #include <string>
 #include <assert.h>
 
-#include "hex.h"
+#include "../util/hex.h"
 #include "../util/xor.h"
 
 using namespace std;

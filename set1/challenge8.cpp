@@ -5,7 +5,7 @@
 #include <vector>
 
 #include "ecb_detect.h"
-#include "hex.h"
+#include "../util/hex.h"
 
 const int kBlockSize = 16;
 

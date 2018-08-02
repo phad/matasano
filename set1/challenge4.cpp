@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-#include "hex.h"
+#include "../util/hex.h"
 #include "single_xor.h"
 
 using namespace std;

@@ -3,8 +3,8 @@
 
 #include <assert.h>
 
-#include "hex.h"
-#include "xor.h"
+#include "../util/hex.h"
+#include "../util/xor.h"
 
 #include "single_xor.h"
 
