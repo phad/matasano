@@ -3,7 +3,7 @@
 #include <assert.h>
 
 #include "hex.h"
-#include "xor.h"
+#include "../util/xor.h"
 
 using namespace std;
 
