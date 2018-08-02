@@ -4,14 +4,14 @@
 #include <map>
 #include <string>
 
-bool is_likely_ecb(const string& ciphertext, int block_size) {
-  std::map<string, int> block_counts;
+bool is_likely_ecb(const std::string& ciphertext, int block_size) {
+  std::map<std::string, int> block_counts;
   for (int offset = 0; offset < ciphertext.size(); offset += block_size) {
-    const string& block(ciphertext.substr(offset, block_size));
+    const std::string& block(ciphertext.substr(offset, block_size));
     block_counts[block]++;
   }
   int num_duplicate_blocks(0);
-  for (std::map<string, int>::const_iterator it = block_counts.begin();
+  for (std::map<std::string, int>::const_iterator it = block_counts.begin();
        it != block_counts.end(); ++it) {
      num_duplicate_blocks += (it->second > 1) ? 1 : 0;
   }
